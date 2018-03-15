@@ -11,7 +11,7 @@ public class Main {
         String pesel = "";
         pesel+= rok / 10 % 10;
         pesel+= rok % 10;
-        pesel+= miesiac / 10 + 8;
+        pesel+= miesiac / 10;
         pesel+= miesiac % 10;
         pesel+= dzien / 10;
         pesel+= dzien % 10;
@@ -24,14 +24,14 @@ public class Main {
         Random r = new Random();
         String[] pesele = new String[liczbaDoWygenerowania];
         for(int i =0;i<liczbaDoWygenerowania;i++){
-            int miesiac = r.nextInt(11) + 1;
-            int zakresDniDlaMiesiaca = 29;
+            int miesiac = r.nextInt(12) + 1;
+            int zakresDniDlaMiesiaca = 30;
             if(miesiac == 2){
                 //luty
-                zakresDniDlaMiesiaca = 27;
+                zakresDniDlaMiesiaca = 28;
             }
             else if(miesiac == 1 || miesiac == 3 || miesiac == 5 ||miesiac == 7 || miesiac == 8 || miesiac == 10 || miesiac == 12){
-                zakresDniDlaMiesiaca = 30;
+                zakresDniDlaMiesiaca = 31;
             }
             int roznicaLat = 1999 - 1922;
             pesele[i] = generujPesel(r.nextInt(roznicaLat) + 1922 + 1, miesiac, r.nextInt(zakresDniDlaMiesiaca) + 1);
